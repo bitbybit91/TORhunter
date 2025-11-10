@@ -218,8 +218,29 @@ TORhunter v2.0 includes full integration with [THC-Hydra](https://github.com/van
 - ✅ Parrot OS 4.11+
 
 **TOR Support**:
-- ✅ v2 Onion addresses (legacy, 16 characters)
-- ✅ v3 Onion addresses (current, 56 characters)
+- ✅ v2 Onion addresses (legacy, 16 characters) - Deprecated by TOR Project
+- ✅ v3 Onion addresses (current, 56 characters) - Fully supported
+
+### v3 Onion Technical Details
+
+**What are v3 Onion Services?**
+
+v3 onion addresses are the next-generation hidden services that offer:
+- **Better Security**: Ed25519 public keys (vs RSA in v2)
+- **Improved Privacy**: Enhanced encryption and authentication
+- **Longer Addresses**: 56 characters (vs 16 in v2) for better collision resistance
+- **Future-Proof**: v2 addresses deprecated as of October 2021
+
+**Compatibility**:
+- Requires TOR version 0.3.2+ (installed automatically)
+- Full backward compatibility with v2 addresses
+- Automatic format detection in TORhunter
+
+**Example Addresses**:
+```
+v2 (legacy): 3g2upl4pq6kufc4m.onion (16 chars)
+v3 (current): thehiddenwiki2345678901234567890123456789012345.onion (56 chars)
+```
 
 
 
@@ -299,12 +320,103 @@ sudo git clone https://github.com/bitbybit91/TORhunter && cd TORhunter && sudo c
 
 ## 📚 Documentation
 
-For detailed guides, see:
-- **[INSTALL.md](INSTALL.md)** - Complete installation guide with troubleshooting
-- **[COMMANDS.md](COMMANDS.md)** - Full command reference and usage examples
-- **[README.md](README.md)** - This file (project overview)
+### Quick Links
+- 🚀 **[QUICKSTART.md](QUICKSTART.md)** - Get started in 5 minutes!
+- 📦 **[INSTALL.md](INSTALL.md)** - Complete installation guide with troubleshooting  
+- 📖 **[COMMANDS.md](COMMANDS.md)** - Full command reference and usage examples
+- 📝 **[CHANGELOG.md](CHANGELOG.md)** - Version history and changes
+- 📄 **[README.md](README.md)** - This file (project overview)
 
-### Connect with me:
+### Documentation Structure
+```
+TORhunter/
+├── QUICKSTART.md    # 5-minute getting started guide
+├── INSTALL.md       # Detailed installation instructions
+├── COMMANDS.md      # Complete command reference (17K+ words)
+├── CHANGELOG.md     # Version history and roadmap
+└── README.md        # Project overview and features
+```
+
+## ⚖️ Legal Disclaimer
+
+**IMPORTANT - READ BEFORE USE**
+
+This tool is provided for **EDUCATIONAL AND RESEARCH PURPOSES ONLY**.
+
+### Authorized Use Only
+- ✅ Use ONLY on systems you own
+- ✅ Use ONLY with explicit written permission from system owners
+- ✅ Use for authorized penetration testing and security research
+- ✅ Use in isolated lab environments for learning
+
+### Prohibited Use
+- ❌ Unauthorized access to computer systems
+- ❌ Testing systems without explicit permission
+- ❌ Any illegal activity whatsoever
+- ❌ Causing harm, disruption, or damage
+
+### Your Responsibility
+- You are solely responsible for your actions
+- Unauthorized use may violate laws including the Computer Fraud and Abuse Act (CFAA)
+- Violations can result in criminal prosecution and civil liability
+- Always obtain proper authorization before testing any system
+
+### Developer Liability
+The developers of TORhunter:
+- Do NOT condone illegal use of this software
+- Are NOT responsible for misuse or damage caused by this tool
+- Provide this software "AS IS" without warranty
+- Encourage responsible and ethical security research
+
+**By using TORhunter, you agree to use it legally and ethically.**
+
+## 🤝 Contributing
+
+We welcome contributions to TORhunter! Here's how you can help:
+
+### Ways to Contribute
+- 🐛 Report bugs and issues
+- 💡 Suggest new features
+- 📖 Improve documentation
+- 🔧 Submit pull requests
+- ⭐ Star the repository
+- 📢 Share with the security community
+
+### Contribution Guidelines
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+### Code of Conduct
+- Be respectful and professional
+- Focus on constructive feedback
+- Help maintain a welcoming environment
+- Follow ethical security research practices
+
+## 📜 License
+
+TORhunter is released under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- **Original Author**: Err0r_HB ~ HackBoyz
+- **THC-Hydra Team**: For the excellent password cracking tool
+- **TOR Project**: For the anonymity network
+- **Security Community**: For continuous feedback and support
+- **All Contributors**: Thank you for your contributions!
+
+## 📊 Project Status
+
+![Version](https://img.shields.io/badge/version-2.0-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Platform](https://img.shields.io/badge/platform-Linux-lightgrey)
+![TOR](https://img.shields.io/badge/TOR-v2%20%7C%20v3-purple)
+
+---
+
+### Original Author Connect:
 <a href="https://github.com/Err0r-ICA"><img align="left" alt="codeSTACKr | Github" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/github.svg" /></a>
 <a href="https://t.me/kalit3rmux"><img align="left" alt="codeSTACKr | Telegram" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/telegram.svg" /></a>
 <a href="https://www.facebook.com/termuxxhacking"><img align="left" alt="codeSTACKr | Facebook" width="22px" src="https://cdn.jsdelivr.net/npm/simple-icons@v3/icons/facebook.svg" /></a>
