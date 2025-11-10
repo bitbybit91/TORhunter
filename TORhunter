@@ -1,7 +1,10 @@
 #!/bin/bash
-# TORhunter
-# Written by: Err0r_HB ~ HackBoyz (2020) 
-# Do NOT copy, noooooob! Give credits, at least
+# TORhunter v2.0
+# Originally by: Err0r_HB ~ HackBoyz (2020)
+# Enhanced with v3 Onion Support and THC-Hydra Integration
+
+# Detect script directory for dynamic paths
+SCRIPT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 sudo
 clear
@@ -12,10 +15,10 @@ sleep 3.4
 {
 option=0
 until [ "$option" = "1" ]; do
-echo -e "\033[1;95m[\033[1;97m01\033[1;95m] \033[1;92mConnect to TOR/Proxy"
+echo -e "\033[1;95m[\033[1;97m01\033[1;95m] \033[1;92mConnect to TOR/Proxy (v2/v3 Onion Support)"
 echo -e "\033[1;95m[\033[1;97m02\033[1;95m] \033[1;92mDisconnect TOR/PROXY"
-echo -e "\033[1;95m[\033[1;97m03\033[1;95m] \033[1;92mNmap"
-echo -e "\033[1;95m[\033[1;97m04\033[1;95m] \033[1;92mFull Port Scan"
+echo -e "\033[1;95m[\033[1;97m03\033[1;95m] \033[1;92mNmap Quick Scan"
+echo -e "\033[1;95m[\033[1;97m04\033[1;95m] \033[1;92mFull Port Scan (Proxychains)"
 echo -e "\033[1;95m[\033[1;97m05\033[1;95m] \033[1;92mCustom Port Scan"
 echo -e "\033[1;95m[\033[1;97m06\033[1;95m] \033[1;92mCustom Proxy"
 echo -e "\033[1;95m[\033[1;97m t\033[1;95m] \033[1;92mTarget Notes"
@@ -25,13 +28,13 @@ echo -e -n "\033[1;92mroot\033[1;95m@\033[1;96mtorhunter\033[1;97m:~# "
 read option
 echo ""
 case $option in
-    1 ) sudo terminator 2>/dev/null -e "sudo /home/YOUR_USER_NAME/TORhunter/proxy.sh" &  ;;
-    2 ) sudo service tor stop ;;
-    3 ) sudo nmap 127.0.0.1 -PN ;;
-    4 ) sudo terminator 2>/dev/null -e "sudo /home/YOUR_USER_NAME/TORhunter/nmap.sh" &  ;; 
-    5 ) sudo terminator 2>/dev/null -e "sudo /home/YOUR_USER_NAME/TORhunter/cport.sh" &  ;;
-    6 ) sudo terminator 2>/dev/null -e "sudo /home/YOUR_USER_NAME/TORhunter/cproxy.sh" & ;;
-    t ) sudo terminator 2>/dev/null -e "sudo nano /home/YOUR_USER_NAME/TORhunter/targets.txt" &  ;;    
+    1 ) sudo terminator 2>/dev/null -e "sudo $SCRIPT_DIR/proxy.sh" &  ;;
+    2 ) sudo service tor stop && echo -e "\033[1;91mTOR service stopped\033[0m" ;;
+    3 ) sudo nmap 127.0.0.1 -Pn ;;
+    4 ) sudo terminator 2>/dev/null -e "sudo $SCRIPT_DIR/nmap.sh" &  ;; 
+    5 ) sudo terminator 2>/dev/null -e "sudo $SCRIPT_DIR/cport.sh" &  ;;
+    6 ) sudo terminator 2>/dev/null -e "sudo $SCRIPT_DIR/cproxy.sh" & ;;
+    t ) sudo terminator 2>/dev/null -e "sudo nano $SCRIPT_DIR/targets.txt" &  ;;    
     b ) main_menu ;;
     * ) tput setf 4;echo "echo -n "root@torhunter:~#:"";tput setf 4; 
 esac
@@ -58,15 +61,15 @@ echo -e -n "\033[1;92mroot\033[1;95m@\033[1;96mtorhunter:\033[1;97m~# "
 read option
 echo ""
 case $option in
-    1 ) sudo terminator 2>/dev/null -e "sudo /home/YOUR_USER_NAME/TORhunter/sql.sh" &  ;;
+    1 ) sudo terminator 2>/dev/null -e "sudo $SCRIPT_DIR/sql.sh" &  ;;
     2 ) sudo terminator 2>/dev/null -e "sudo nikto -host 127.0.0.1 -port 8000" &  ;;
     3 ) sudo terminator 2>/dev/null -e "sudo uniscan -u http://127.0.0.1:8000 -qwedsrgj" &  ;;
     4 ) sudo terminator 2>/dev/null -e "sudo uniscan -u http://127.0.0.1:8000 -q" &  ;;
-    5 ) sudo terminator 2>/dev/null -e "sudo /home/YOUR_USER_NAME/TORhunter/bruTOR.sh" &  ;;
-    6 ) etherape 2>/dev/nul | sudo terminator 2>/dev/null -e "sudo /home/YOUR_USER_NAME/TORhunter/ddos.sh" & ;;
-    7 ) etherape 2>/dev/nul | sudo terminator 2>/dev/null -e "sudo /home/YOUR_USER_NAME/TORhunter/ddosx4.sh" & ;;
-    8 ) etherape 2>/dev/nul | sudo terminator 2>/dev/null -e "sudo /home/YOUR_USER_NAME/TORhunter/cDDoS" &  ;;
-    t ) sudo terminator 2>/dev/null -e "sudo nano /home/YOUR_USER_NAME/TORhunter/targets.txt" &   ;;
+    5 ) sudo terminator 2>/dev/null -e "sudo $SCRIPT_DIR/bruTOR.sh" &  ;;
+    6 ) etherape 2>/dev/null | sudo terminator 2>/dev/null -e "sudo $SCRIPT_DIR/ddos.sh" & ;;
+    7 ) etherape 2>/dev/null | sudo terminator 2>/dev/null -e "sudo $SCRIPT_DIR/ddos8000.sh" & ;;
+    8 ) etherape 2>/dev/null | sudo terminator 2>/dev/null -e "sudo $SCRIPT_DIR/cDDoS" &  ;;
+    t ) sudo terminator 2>/dev/null -e "sudo nano $SCRIPT_DIR/targets.txt" &   ;;
     b ) main_menu ;;
     * ) tput setf 4;echo "echo -n "root@torhunter:~#:"";tput setf 4; 
 esac
@@ -89,10 +92,10 @@ echo ""
  echo ""
  case $option in
  1 ) xdg-open 2>/dev/null https://iplocation.com/ ;;
- 2 ) /home/YOUR_USER_NAME/.local/share/torbrowser/tbb/x86_64/tor-browser_en-US/Browser/start-tor-browser https://www.filedropper.com/ ;;
- 3 ) /home/YOUR_USER_NAME/.local/share/torbrowser/tbb/x86_64/tor-browser_en-US/Browser/start-tor-browser https://protonirockerxow.onion/ --no-remote ;;
- t ) terminator 2>/dev/null -e "sudo nano /home/YOUR_USER_NAME/TORhunter/targets.txt" &  ;;
- secret ) sudo terminator 2>/dev/null -e "sudo nano /home/YOUR_USER_NAME/TORhunter/wordlists/passswords.txt" &  ;;
+ 2 ) torbrowser-launcher https://www.filedropper.com/ 2>/dev/null || torbrowser https://www.filedropper.com/ 2>/dev/null || echo "TOR Browser not found" ;;
+ 3 ) torbrowser-launcher https://protonirockerxow.onion/ 2>/dev/null || torbrowser https://protonirockerxow.onion/ 2>/dev/null || echo "TOR Browser not found" ;;
+ t ) terminator 2>/dev/null -e "sudo nano $SCRIPT_DIR/targets.txt" &  ;;
+ secret ) sudo terminator 2>/dev/null -e "sudo nano $SCRIPT_DIR/wordlists/passswords.txt" &  ;;
  b ) main_menu ;;
  * ) tput setf 3;echo "echo -n "root@torhunter:~#"";tput setf 3;
  esac
