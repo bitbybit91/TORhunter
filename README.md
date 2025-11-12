@@ -39,6 +39,13 @@
 - ✅ Better error handling and user feedback
 - 🎯 Step-by-step guides for all features
 
+### Automation Features
+- 🤖 **AutoBot** - Automated multi-target scanning and exploitation
+- ⏰ Unattended operation on target lists
+- 📊 Automatic report generation
+- 🔄 Scheduled execution support (cron)
+- 📝 Comprehensive logging and error handling
+
 ## About This Project
 
 TORhunter is a comprehensive security research toolkit designed for penetration testing of TOR hidden services. The toolkit works by proxying TOR through localhost, allowing industry-standard security tools to operate seamlessly against .onion addresses.
@@ -80,10 +87,11 @@ TORhunter is a comprehensive security research toolkit designed for penetration 
 * ✅ **Anonymous Email** - ProtonMail integration
 * ✅ **Target Notes** - Built-in documentation system
 * ✅ **Result Logging** - Automatic finding storage
+* ✅ **AutoBot** - Automated scanning of multiple targets
 
 ## 🎯 Quick Usage Guide
 
-### Basic Workflow
+### Basic Workflow (Manual)
 
 1. **Launch TORhunter**
    ```bash
@@ -128,6 +136,36 @@ Port: 22 (or leave empty for auto-scan)
 # 3. Check results
 Results saved in: ~/TORhunter/loot/hydra-ssh-127.0.0.1.txt
 ```
+
+### Automated Workflow (AutoBot)
+
+**NEW**: Automatically process multiple targets without manual interaction!
+
+```bash
+# 1. Add targets to targets.txt
+nano ~/TORhunter/targets.txt
+# Add onion addresses (one per line)
+
+# 2. Run AutoBot
+cd ~/TORhunter
+sudo ./autobot.sh
+
+# AutoBot will automatically:
+# - Setup TOR proxy for each target
+# - Scan ports with nmap
+# - Run vulnerability scans
+# - Attempt password attacks
+# - Generate comprehensive reports
+```
+
+**Features**:
+- Unattended operation on target list
+- Automatic proxy management
+- Comprehensive logging
+- Summary reports in loot/ directory
+- Perfect for scheduled/recurring scans
+
+**See [AUTOBOT.md](AUTOBOT.md) for complete documentation**
 
 ### Supported Onion Address Formats
 
@@ -343,6 +381,7 @@ sudo git clone https://github.com/bitbybit91/TORhunter && cd TORhunter && sudo c
 - 🚀 **[QUICKSTART.md](QUICKSTART.md)** - Get started in 5 minutes!
 - 📦 **[INSTALL.md](INSTALL.md)** - Complete installation guide with troubleshooting  
 - 📖 **[COMMANDS.md](COMMANDS.md)** - Full command reference and usage examples
+- 🤖 **[AUTOBOT.md](AUTOBOT.md)** - Automated multi-target scanning guide
 - 📝 **[CHANGELOG.md](CHANGELOG.md)** - Version history and changes
 - 📄 **[README.md](README.md)** - This file (project overview)
 
@@ -352,6 +391,7 @@ TORhunter/
 ├── QUICKSTART.md    # 5-minute getting started guide
 ├── INSTALL.md       # Detailed installation instructions
 ├── COMMANDS.md      # Complete command reference (17K+ words)
+├── AUTOBOT.md       # Automated scanning documentation
 ├── CHANGELOG.md     # Version history and roadmap
 └── README.md        # Project overview and features
 ```

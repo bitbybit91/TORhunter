@@ -2,6 +2,36 @@
 
 All notable changes to TORhunter will be documented in this file.
 
+## [2.1] - 2024-11-12
+
+### 🤖 AutoBot Release - Automated Multi-Target Scanning
+
+This release adds comprehensive automation capabilities for unattended scanning of multiple targets.
+
+### Added
+
+#### AutoBot - Automated Scanning
+- ✅ **autobot.sh** - Automated multi-target processing script
+- ✅ **AUTOBOT.md** - Complete documentation for automated scanning
+- ✅ Unattended operation on target lists from targets.txt
+- ✅ Automatic TOR proxy management per target
+- ✅ Comprehensive logging and error handling
+- ✅ Summary report generation
+- ✅ Support for scheduled execution (cron)
+- ✅ Integration with all TORhunter tools (nmap, nikto, bruTOR)
+
+#### Features
+- Processes multiple targets sequentially
+- Automatic proxy setup and teardown
+- Configurable timeouts and operations
+- Detailed logging to loot/ directory
+- Continues processing even if individual targets fail
+- Generates comprehensive reports with findings
+
+### Updated
+- README.md - Added AutoBot documentation and workflow
+- Documentation structure - Added AUTOBOT.md reference
+
 ## [2.0] - 2024-11-10
 
 ### 🎉 Major Release - v3 Onion Support & THC-Hydra Integration

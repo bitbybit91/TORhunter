@@ -13,12 +13,25 @@ Wait 5-15 minutes for installation to complete.
 
 ## 🚀 Launch TORhunter
 
+### Manual Mode (Interactive)
 ```bash
 cd ~/TORhunter
 sudo ./TORhunter
 ```
 
-## 📝 Your First Scan
+### Automated Mode (AutoBot)
+```bash
+# Add targets to targets.txt first
+nano ~/TORhunter/targets.txt
+
+# Run automated scanning
+cd ~/TORhunter
+sudo ./autobot.sh
+```
+
+**See [AUTOBOT.md](AUTOBOT.md) for complete automation documentation**
+
+## 📝 Your First Scan (Manual Mode)
 
 ### Step 1: Connect to a Hidden Service
 
