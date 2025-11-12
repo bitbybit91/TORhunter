@@ -1,0 +1,40 @@
+# TORhunter .gitignore
+
+# Large wordlists (should be downloaded by users)
+wordlists/rockyou.txt
+wordlists/rockyou*.txt
+wordlists/*.tar.gz
+wordlists/*.zip
+
+# Loot directory contents (sensitive data)
+loot/*.txt
+loot/*.xml
+loot/*.log
+
+# Compiled binaries
+ddos
+cDDoS
+*.o
+
+# Temporary files
+*.tmp
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Backup files
+*.bak
+*.backup
+*.save
+
+# Log files
+*.log
+
+# IDE and editor files
+.vscode/
+.idea/
+*.sublime-*
+
+# System files
+Thumbs.db

@@ -83,6 +83,10 @@ Main → 02 → 02 (Nikto)     # Find vulns
 3. **Keep proxy window open** - Minimize, don't close
 4. **Check results in loot/** - All findings saved there
 5. **Document everything** - Use the 't' option
+6. **Download RockYou wordlist** - For better password cracking
+   ```bash
+   cd ~/TORhunter/wordlists && ./download-rockyou.sh
+   ```
 
 ## ⚠️ Important Notes
 

@@ -463,6 +463,18 @@ Located in: `~/TORhunter/wordlists/`
 - `windows-default-userpass.txt` - Windows defaults
 - And more...
 
+**RockYou Wordlist (Recommended)**:
+
+The famous **RockYou wordlist** (14+ million passwords) can be easily downloaded:
+
+```bash
+# Download RockYou wordlist
+cd ~/TORhunter/wordlists
+./download-rockyou.sh
+```
+
+Once downloaded, RockYou provides the most comprehensive password coverage for brute force attacks. See `wordlists/README.md` for detailed information and usage examples.
+
 **To add custom wordlists**:
 ```bash
 # Copy your wordlist

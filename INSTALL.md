@@ -178,13 +178,22 @@ TORhunter includes default wordlists in the `wordlists/` directory. You can:
    ls -la ~/TORhunter/wordlists/
    ```
 
-2. **Add custom wordlists**:
+2. **Download RockYou wordlist** (Recommended):
+   ```bash
+   # Download the famous RockYou wordlist (14+ million passwords)
+   cd ~/TORhunter/wordlists
+   ./download-rockyou.sh
+   ```
+   
+   The RockYou wordlist is the industry standard for password cracking and provides comprehensive coverage. See `wordlists/README.md` for more details.
+
+3. **Add custom wordlists**:
    ```bash
    # Copy your wordlists to the wordlists directory
    cp /path/to/your/wordlist.txt ~/TORhunter/wordlists/
    ```
 
-3. **Edit default passwords**:
+4. **Edit default passwords**:
    ```bash
    nano ~/TORhunter/wordlists/passswords.txt
    ```

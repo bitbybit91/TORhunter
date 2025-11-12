@@ -175,6 +175,7 @@ TORhunter v2.0 includes full integration with [THC-Hydra](https://github.com/van
 - ✅ **TOR Proxy Integration** - All attacks routed through TOR
 - ✅ **Default Credentials** - Built-in database of common passwords
 - ✅ **Custom Wordlists** - Optimized lists for different services
+- ✅ **RockYou Support** - Easy download script for 14M+ password list
 - ✅ **Multi-threading** - Configurable parallel connections (default: 16)
 - ✅ **Timeout Control** - Adjustable timeouts for slow TOR connections
 - ✅ **Result Logging** - Automatic saving of successful credentials
@@ -200,6 +201,24 @@ TORhunter v2.0 includes full integration with [THC-Hydra](https://github.com/van
 
 # All through TOR proxy for anonymity
 ```
+
+### RockYou Wordlist
+
+TORhunter includes easy access to the **RockYou wordlist** - the most comprehensive password list for security testing:
+
+```bash
+# Download RockYou (14+ million passwords)
+cd ~/TORhunter/wordlists
+./download-rockyou.sh
+```
+
+**Benefits**:
+- 14,344,391 real-world passwords
+- Industry standard for penetration testing
+- Highly effective for password cracking
+- Automatically integrated with bruTOR
+
+See `wordlists/README.md` for complete documentation and usage examples.
 
 ## 🏗️ Built With
 
