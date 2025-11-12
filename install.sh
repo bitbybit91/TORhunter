@@ -1,45 +1,96 @@
-sudo apt-get update
-sudo apt-get install terminator -y
-sudo apt-get install nikto -y
-sudo apt-get install python3 -y  
-sudo apt-get install python3-pip -y
-sudo apt-get install sqlmap -y
-sudo apt-get install uniscan -y
-sudo apt-get install socat -y
-sudo apt-get install hydra -y
-sudo apt-get install tor -y
-sudo apt-get install nmap -y
-sudo apt-get install torbrowser-launcher -y
-sudo apt-get install etherape -y
-sudo apt install proxychains4 -y
-sudo apt install docker
-sudo apt install docker.io
-sudo gcc ddos.c -o ddos
-sudo gcc cDDoS.c -o cDDoS
-sudo chmod +x proxy.sh
-sudo chmod +x cproxy.sh
-sudo chmod +x bruTOR.sh
-sudo chmod +x bruTOR
-sudo chmod +x cport.sh
-sudo chmod +x ddos.sh
-sudo chmod +x ddos8000.sh
-sudo chmod +x ddosx4.sh
-sudo chmod +x nmap.sh
-sudo chmod +x proxy.sh
-sudo chmod +x run.sh
-sudo chmod +x sql.sh
-sudo chmod +x TorHunter
-echo "PLEASE ENTER THE USERNAME OF THE SESSION YOU ARE CURRENTLY LOGGED IN AS:" 
-echo " YOUR USERNAME IS PROBABLY:" "$USER"
-read varusername 
-sudo sed -i 's+YOUR_USER_NAME+'$varusername'+' TorHunter
-sudo sed -i 's+YOUR_USER_NAME+'$varusername'+' bruTOR.sh
-sudo sed -i 's+YOUR_USER_NAME+'$varusername'+' cport.sh
-sudo sed -i 's+YOUR_USER_NAME+'$varusername'+' cproxy.sh
-sudo sed -i 's+YOUR_USER_NAME+'$varusername'+' ddos.sh
-sudo sed -i 's+YOUR_USER_NAME+'$varusername'+' ddos8000.sh
-sudo sed -i 's+YOUR_USER_NAME+'$varusername'+' ddosx4.sh
-sudo sed -i 's+YOUR_USER_NAME+'$varusername'+' nmap.sh
-sudo sed -i 's+YOUR_USER_NAME+'$varusername'+' proxy.sh
-sudo sed -i 's+YOUR_USER_NAME+'$varusername'+' sql.sh
-sudo ./TorHunter
+#!/bin/bash
+# TORhunter Installation Script v2.0
+# Enhanced with v3 Onion Support and THC-Hydra Integration
+
+echo "=========================================="
+echo "  TORhunter Installation Script v2.0"
+echo "=========================================="
+echo ""
+echo "This script will install all required dependencies for TORhunter."
+echo "Requires root privileges to install packages."
+echo ""
+
+# Check if running as root or with sudo
+if [ "$EUID" -ne 0 ]; then 
+    echo "Please run with sudo: sudo ./install.sh"
+    exit 1
+fi
+
+echo "[*] Updating package lists..."
+apt-get update
+
+echo ""
+echo "[*] Installing core dependencies..."
+apt-get install -y \
+    terminator \
+    nikto \
+    python3 \
+    python3-pip \
+    sqlmap \
+    uniscan \
+    socat \
+    hydra \
+    tor \
+    nmap \
+    torbrowser-launcher \
+    etherape \
+    proxychains4 \
+    gcc \
+    make
+
+echo ""
+echo "[*] Configuring Tor..."
+# Ensure Tor is configured properly
+if [ ! -f /etc/tor/torrc.bak ]; then
+    cp /etc/tor/torrc /etc/tor/torrc.bak
+fi
+
+# Enable SOCKS proxy on port 9050
+if ! grep -q "^SocksPort 9050" /etc/tor/torrc; then
+    echo "SocksPort 9050" >> /etc/tor/torrc
+fi
+
+echo ""
+echo "[*] Compiling DDoS tools..."
+gcc ddos.c -o ddos 2>/dev/null || echo "Warning: ddos.c compilation failed"
+gcc cDDoS.c -o cDDoS 2>/dev/null || echo "Warning: cDDoS.c compilation failed"
+
+echo ""
+echo "[*] Setting executable permissions..."
+chmod +x proxy.sh cproxy.sh bruTOR.sh bruTOR cport.sh ddos.sh ddos8000.sh ddosx4.sh nmap.sh run.sh sql.sh TORhunter 2>/dev/null
+
+echo ""
+echo "[*] Creating necessary directories..."
+mkdir -p loot
+mkdir -p bin
+mkdir -p etc
+
+echo ""
+echo "[*] Starting Tor service..."
+systemctl enable tor
+systemctl start tor
+
+# Wait for Tor to initialize
+sleep 5
+
+# Check if Tor is running
+if pgrep -x "tor" > /dev/null; then
+    echo "[+] Tor service started successfully!"
+else
+    echo "[!] Warning: Tor service may not be running properly"
+    echo "    Try manually: sudo service tor start"
+fi
+
+echo ""
+echo "=========================================="
+echo "  Installation Complete!"
+echo "=========================================="
+echo ""
+echo "To run TORhunter:"
+echo "  sudo ./TORhunter"
+echo ""
+echo "For help and documentation, see:"
+echo "  - README.md"
+echo "  - INSTALL.md"
+echo "  - COMMANDS.md"
+echo ""
